@@ -14,24 +14,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 @org.springframework.stereotype.Controller
-public class Controller {
+public class AdminController {
 
     private final UserService userService;
     private final RoleRepository roleRepository;
 
     @Autowired
-    public Controller(UserService userService, RoleRepository roleRepository) {
+    public AdminController(UserService userService, RoleRepository roleRepository) {
         this.userService = userService;
         this.roleRepository = roleRepository;
     }
 
-    @GetMapping("/user")
-    public String showUser(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findByUsername(auth.getName());
-        model.addAttribute("user", user);
-        return "userPage";
-    }
+//    @GetMapping("/user")
+//    public String showUser(Model model) {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        User user = userService.findByUsername(auth.getName());
+//        model.addAttribute("user", user);
+//        return "userPage";
+//    }
 
     @GetMapping("/admin")
     public String index(Model model) {
